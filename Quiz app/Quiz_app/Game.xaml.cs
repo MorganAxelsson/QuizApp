@@ -19,12 +19,14 @@ namespace Quiz_app
         private int Score = 0;
         public string Username { get; set; }
         public int UserID { get; set; }
+        private Color ButtonBackgroundColor;
         public Game(string username, int userId)
         {
             UserID = userId;
             Username = username;
 
-            InitializeComponent();            
+            InitializeComponent();
+            ButtonBackgroundColor = btnAnswer1.BackgroundColor;
             lblName.Text = Username;
             QuestionList = QuestionRepository.Get(10);
             UpdateGameLabels();
@@ -96,10 +98,10 @@ namespace Quiz_app
 
         private void ResetAnswerButtons()
         {
-            btnAnswer1.BackgroundColor = Color.Default;
-            btnAnswer2.BackgroundColor = Color.Default;
-            btnAnswer3.BackgroundColor = Color.Default;
-            btnAnswer4.BackgroundColor = Color.Default;
+            btnAnswer1.BackgroundColor = ButtonBackgroundColor;
+            btnAnswer2.BackgroundColor = ButtonBackgroundColor;
+            btnAnswer3.BackgroundColor = ButtonBackgroundColor;
+            btnAnswer4.BackgroundColor = ButtonBackgroundColor;
 
             btnAnswer1.IsEnabled = true;
             btnAnswer2.IsEnabled = true;
