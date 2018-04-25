@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using System.IO;
 
 namespace Quiz_app.iOS
 {
@@ -23,7 +24,10 @@ namespace Quiz_app.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            string fileName = "quizDb.sqlite";
+            string fileLocation = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),"..","Library");
+            string fullpath = Path.Combine(fileLocation, fileName);
+            LoadApplication(new App(fullpath));
 
             return base.FinishedLaunching(app, options);
         }

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Quiz_app.Game">
+    <ContentPage.Content>
+        <StackLayout Margin="10,10,10,0">
+            <Label x:Name="lblName" Text="Lets start!" HorizontalTextAlignment="Center" />
+            <Label x:Name="lblScore" Text="Poäng: 0"></Label>
+            <Label x:Name="lblQuestion" Text="question 1/10"></Label>
+            <Label x:Name="lblQuestionText" Text="this is the question?" Margin="0,20,0,0"></Label>
+            <Button x:Name="btnAnswer1" Text="Answer1" Clicked="Answer_Clicked"></Button>
+            <Button x:Name="btnAnswer2" Text="Answer2" Clicked="Answer_Clicked"></Button>
+            <Button x:Name="btnAnswer3" Text="Answer3" Clicked="Answer_Clicked"></Button>
+            <Button x:Name="btnAnswer4" Text="Answer4" Clicked="Answer_Clicked"></Button>
+            <Button x:Name="btnNextQuestion" Clicked="btnNextQuestion_Clicked" IsVisible="False" Text="Nästa fråga"></Button>
+            <Button x:Name="btnQuit" Clicked="btnQuit_Clicked" IsVisible="False" Text="Avsluta"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

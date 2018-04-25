@@ -3,9 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Quiz_app"
              x:Class="Quiz_app.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
+    <StackLayout Padding="10,10,10,0">
+        <Label Text="Quiz app" 
            VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+           HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+        <Entry x:Name="entryName" Placeholder="Användarnamn..."></Entry>
+        <Entry x:Name="entryPassword" IsPassword="True" Placeholder="Lösenord..."></Entry>
+        <Button x:Name="btnStartQuiz" Text="Logga in/Skapa ny användare" Clicked="btnStartQuiz_Clicked"></Button>
 
+        <Label x:Name="lblUsers" Text="Topplista" Margin="0,15,0,0" FontAttributes="Bold"></Label>
+        <ListView x:Name="listViewUsers">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Username}"
+                              Detail="{Binding Path=Score, StringFormat='{0} Poäng'}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>	
 </ContentPage>

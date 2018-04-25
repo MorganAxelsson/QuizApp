@@ -6,7 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
+using System.IO;
 namespace Quiz_app.Droid
 {
     [Activity(Label = "Quiz_app", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -19,8 +19,11 @@ namespace Quiz_app.Droid
 
             base.OnCreate(bundle);
 
+            string fileName = "quizDb.sqlite";
+            string fileLocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string fullpath = Path.Combine(fileLocation, fileName);
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            LoadApplication(new App(fullpath));
         }
     }
 }
